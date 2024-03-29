@@ -1,0 +1,66 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* https://github.com/microsoft/TypeScript-React-Starter/issues/8 */
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@theme": ["./src/theme"],
+      "@App": ["./src/App"],
+      "@routes": ["./src/routes"],
+
+      "@reducer": ["./src/reducer"],
+      "@reducer/*": ["./src/reducer/*"],
+
+      "@constants": ["./src/constants"],
+      "@constants/*": ["./src/constants/*"],
+
+      "@modules": ["./src/modules"],
+      "@modules/*": ["./src/modules/*"],
+
+      "@contexts": ["./src/contexts"],
+      "@contexts/*": ["./src/contexts/*"],
+
+      "@component": ["./src/component"],
+      "@component/*": ["./src/component/*"],
+
+      "@pages": ["./src/pages"],
+      "@pages/*": ["./src/pages/*"],
+
+      "@layout": ["./src/layout"],
+      "@layout/*": ["./src/layout/*"],
+
+      "@assets": ["./src/assets"],
+      "@assets/*": ["./src/assets/*"],
+
+      "@validation": ["./src/validation"],
+      "@validation/*": ["./src/validation/*"],
+
+      "@generalTypes": ["./src/generalTypes"],
+      "@generalTypes/*": ["./src/generalTypes/*"]
+    }
+  },
+  "homepage": ".",
+  "include": ["src"],
+  "exclude": ["node_modules"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
