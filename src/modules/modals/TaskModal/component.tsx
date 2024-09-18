@@ -52,9 +52,9 @@ const TaskModal: React.FC<ModalProps> = ({ id, typeTask }) => {
             initialValue={form.initialValues.member}
           >
             <Radio.Group>
-              <RadioField name="member" label="Pedro" />
-              <RadioField name="member" label="Hulio" />
-              <RadioField name="member" label="Konchita" />
+              <RadioField name="member" label="Slavko" />
+              <RadioField name="member" label="Olenka" />
+              <RadioField name="member" label="Sashko" />
             </Radio.Group>
           </Form.Item>
           

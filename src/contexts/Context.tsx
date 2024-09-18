@@ -23,11 +23,11 @@ interface ContextProviderProps {
 export interface ContextProps {
   addItemFun: (item: Omit<ItemType, 'id' | 'type'>) => void;
 
-  removeItemFun: (title: string) => void;
+  removeItemFun: (id: string) => void;
 
   addItemClass: (item: Omit<ItemType, 'id' | 'type'>) => void;
 
-  removeItemClass: (title: string) => void;
+  removeItemClass: (id: string) => void;
 
   state: State;
 
@@ -75,16 +75,16 @@ const ContextProvider = ({ children }: ContextProviderProps) => {
     dispatch(addItemFunAction(item));
   };
 
-  const removeItemFun = (title: string) => {
-    dispatch(removeItemFunAction(title));
+  const removeItemFun = (id: string) => {
+    dispatch(removeItemFunAction(id));
   };
 
   const addItemClass = (item: Omit<ItemType, 'id' | 'type'>) => {
     dispatch(addItemClassAction(item));
   };
 
-  const removeItemClass = (title: string) => {
-    dispatch(removeItemClassAction(title));
+  const removeItemClass = (id: string) => {
+    dispatch(removeItemClassAction(id));
   };
 
   const openModal = (item: ModalDataTypeAction) => {

@@ -1,11 +1,9 @@
 import type React from 'react';
 
+import type { AntdIconProps } from '@ant-design/icons/lib/components/AntdIcon';
 import { Menu, Layout } from 'antd';
 import type { ItemType, MenuItemType } from 'antd/es/menu/hooks/useItems';
-import {
-  //  Link,
-  Outlet,
-} from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 import type { LAYOUT_ID, ROUTE_ID } from '@constants/routes';
 
@@ -20,17 +18,18 @@ export interface PageData {
 
 interface MenuItem {
   id: ROUTE_ID | LAYOUT_ID;
-  label: JSX.Element;
-  icon: JSX.Element;
+  path: string;
+  label: string;
+  icon?: React.ForwardRefExoticComponent<AntdIconProps>;
   children?: MenuItem[];
 }
 
 const menuItems = (items: MenuItem[]): ItemType<MenuItemType>[] => {
-   return items.map(({ id, icon, label, children }) => ({
+  return items.map(({ id, path, Icon, label, children }) => ({
     id,
-    label,
+    label: <Link to={path}>{label}</Link>,
     key: id,
-    icon,
+    icon: <Icon />,
     children: children ? menuItems(children) : undefined,
   }));
 };
