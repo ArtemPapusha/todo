@@ -1,6 +1,5 @@
 import type React from 'react';
 
-import type { AntdIconProps } from '@ant-design/icons/lib/components/AntdIcon';
 import { Menu, Layout } from 'antd';
 import type { ItemType, MenuItemType } from 'antd/es/menu/hooks/useItems';
 import { Link, Outlet } from 'react-router-dom';
@@ -20,16 +19,16 @@ interface MenuItem {
   id: ROUTE_ID | LAYOUT_ID;
   path: string;
   label: string;
-  icon?: React.ForwardRefExoticComponent<AntdIconProps>;
+  icon?: React.ReactNode;
   children?: MenuItem[];
 }
 
 const menuItems = (items: MenuItem[]): ItemType<MenuItemType>[] => {
-  return items.map(({ id, path, Icon, label, children }) => ({
+  return items.map(({ id, path, icon, label, children }) => ({
     id,
     label: <Link to={path}>{label}</Link>,
     key: id,
-    icon: <Icon />,
+    icon: icon,
     children: children ? menuItems(children) : undefined,
   }));
 };
